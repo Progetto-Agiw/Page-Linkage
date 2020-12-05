@@ -1,24 +1,16 @@
 from leaves_wrapper import LeavesWrapper 
 from relationship_wrapper import RelationshipWrapper
 from ranker import Ranker
-import itertools
+from loader import Loader
 
-siteA = [
-	(0, "dataset/john-wall-rotoworld.html"),
-	(1, "dataset/luguentz-dort-rotoworld.html"),
-	(2, "dataset/danilo-gallinari-rotoworld.html"),
-]
 
-siteB = [
-	(3, "dataset/danilo-gallinari-nba.html"),
-	(4, "dataset/john-wall-nba.html"),
-	(5, "dataset/luguentz-dort-nba.html"),
-]
+loader = Loader()
+site_a = loader.load_pages("dataset", "site-a")
+site_b = loader.load_pages("dataset", "site-b")
 
-true_relationship = [(2,3), (1,5), (0,4)]
+true_relationship = [(0,3), (1,4), (2,5)]
 
-sites = [siteA, siteB]
-
+sites = [site_a, site_b]
 
 wrapper = LeavesWrapper()
 ranker = Ranker()

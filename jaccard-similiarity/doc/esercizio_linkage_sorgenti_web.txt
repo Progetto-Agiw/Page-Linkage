@@ -1,0 +1,19 @@
+Esercizio:
+
+Dominio: giocatori di basket
+
+Date due sorgenti, S1 e S2, con
+
+S1 = { 
+p11 = https://www.rotoworld.com/basketball/nba/player/29574/john-wall
+p12 = https://www.rotoworld.com/basketball/nba/player/51073/luguentz-dort
+p13 = https://www.rotoworld.com/basketball/nba/player/29378/danilo-gallinari
+}
+
+S2 = {
+p21 = https://www.nba.com/player/201568/danilo-gallinari
+p22 = https://www.nba.com/player/202322/john_wall
+p23 = https://www.nba.com/player/1629652/luguentz-dort
+}
+
+Ideare una soluzione (e possibilmente scriverne lo pseudocodice) che permetta di identificare le coppie di pagine <p1i, p2j>, p1i in S1, p2j in S2, tali che p1i e p2j facciano riferimento alla stessa entità (allo stesso giocatore di basket).

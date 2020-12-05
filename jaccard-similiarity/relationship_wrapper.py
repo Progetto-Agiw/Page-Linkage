@@ -51,3 +51,7 @@ class RelationshipWrapper:
 			relationships.append(( page, best_match))
 
 		return relationships
+
+
+	def get_ranking(self):
+		return self.__ranker.get_ranking()

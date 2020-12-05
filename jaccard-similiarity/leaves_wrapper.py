@@ -3,6 +3,7 @@ from lxml import html
 
 class LeavesWrapper:
 
+	#add label to parameters
 	def get_all_leaves(self, path):
 		file = open(path, "r")
 		page = file.read()
@@ -14,6 +15,7 @@ class LeavesWrapper:
 	def remove_label_from_leaves(self, leaves):
 		return list(map(lambda key_leaf: key_leaf[1], leaves))
 
+	#SiteManager
 	def intersection(self, site_leaves):
 		intersection = set(site_leaves[0])
 		for site in site_leaves:

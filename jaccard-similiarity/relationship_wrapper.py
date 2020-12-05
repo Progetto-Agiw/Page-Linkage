@@ -1,8 +1,9 @@
 class RelationshipWrapper:
 
-	def __init__(self, sites, page_wrapper):
+	def __init__(self, sites, page_wrapper, ranker):
 		self.__wrapper = page_wrapper
 		self.__leaves_sites = self.__get_leaves_from_sites(sites)
+		self.__ranker = ranker
 
 	def __get_leaves_from_sites(self, sites):
 		leaves_sites = []
@@ -28,7 +29,7 @@ class RelationshipWrapper:
 		intersection = self.__wrapper.intersection([page1, page2])
 		return len(intersection)/len(set(page1) | set(page2))
 
-	def get_associations(self):
+	def fit(self):
 		unique_leaves = self.__get_unique_leaves()
 		site1, site2 = unique_leaves[0], unique_leaves[1]
 		
@@ -38,8 +39,15 @@ class RelationshipWrapper:
 			max_sim, max_label1, max_label2 = 0, 0, 0
 			for label2, page2 in site2:
 				sim = self.__similiarity(page1, page2)
-				if sim > max_sim:
-					max_sim, max_label1, max_label2 = sim, label1, label2
-			associations.append( (max_label1, max_label2) )
+				associations.append((label1, label2, sim))
 
-		return associations
+		self.__ranker.generate(associations)
+
+	def predict(self):
+		ranking = self.__ranker.get_ranking()
+		relationships = []
+		for page in ranking.keys():
+			best_match = ranking[page][0][0] # without similiarity
+			relationships.append(( page, best_match))
+
+		return relationships

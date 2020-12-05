@@ -1,5 +1,6 @@
 from leaves_wrapper import LeavesWrapper 
 from relationship_wrapper import RelationshipWrapper
+from ranker import Ranker
 import itertools
 
 siteA = [
@@ -18,5 +19,7 @@ sites = [siteA, siteB]
 
 
 wrapper = LeavesWrapper()
-relationship_wrapper = RelationshipWrapper(sites, wrapper)
-print(relationship_wrapper.get_associations())
+ranker = Ranker()
+relationship_wrapper = RelationshipWrapper(sites, wrapper, ranker)
+relationship_wrapper.fit()
+print(relationship_wrapper.predict())

@@ -15,6 +15,8 @@ siteB = [
 	(5, "dataset/luguentz-dort-nba.html"),
 ]
 
+true_relationship = [(2,3), (1,5), (0,4)]
+
 sites = [siteA, siteB]
 
 
@@ -22,4 +24,6 @@ wrapper = LeavesWrapper()
 ranker = Ranker()
 relationship_wrapper = RelationshipWrapper(sites, wrapper, ranker)
 relationship_wrapper.fit()
-print(relationship_wrapper.predict())
+prediction = relationship_wrapper.predict()
+
+print(relationship_wrapper.accuracy(prediction, true_relationship))

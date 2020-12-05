@@ -1,4 +1,4 @@
-from wrapper import Wrapper 
+from leaves_wrapper import LeavesWrapper 
 from relationship_wrapper import RelationshipWrapper
 import itertools
 
@@ -17,6 +17,6 @@ siteB = [
 sites = [siteA, siteB]
 
 
-wrapper = Wrapper()
+wrapper = LeavesWrapper()
 relationship_wrapper = RelationshipWrapper(sites, wrapper)
 print(relationship_wrapper.get_associations())

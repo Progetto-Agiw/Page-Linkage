@@ -1,7 +1,7 @@
 import requests
 from lxml import html
 
-class Wrapper:
+class LeavesWrapper:
 
 	def get_all_leaves(self, path):
 		file = open(path, "r")

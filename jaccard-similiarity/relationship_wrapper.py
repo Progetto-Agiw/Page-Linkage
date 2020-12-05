@@ -26,7 +26,7 @@ class RelationshipWrapper:
 
 	def __similiarity(self, page1, page2):
 		intersection = self.__wrapper.intersection([page1, page2])
-		return len(intersection)/(len(page1) + len(page2))
+		return len(intersection)/len(set(page1) | set(page2))
 
 	def get_associations(self):
 		unique_leaves = self.__get_unique_leaves()

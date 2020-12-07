@@ -5,7 +5,7 @@ class NbaSpider(scrapy.Spider):
     name = "bsk_players"
 
     def start_requests(self):
-        urls = ['file:///home/ilaria/git/scraper/NBA_Players.html']
+        urls = ['file:///home/ilaria/git/scraper/BasketballDomain/NBA_Players.html']
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -17,7 +17,7 @@ class NbaSpider(scrapy.Spider):
             'url': player.xpath("./@href").extract_first()
                }
            file.write(player.xpath("./@href").extract_first())
-           file.write("\n")
+           file.write(",")
        file.close()
     
            

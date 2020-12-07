@@ -3,12 +3,21 @@ from relationship_wrapper import RelationshipWrapper
 from ranker import Ranker
 from loader import Loader
 
+import sys
+
 print("ENTITY LINKAGE 3000 \n")
+
+if len(sys.argv) != 2:
+	print("usage: entity-linkage <dataset-folder>")
+	exit()
+
+dataset_folder = sys.argv[1]
+
 loader = Loader()
-site_a = loader.load_pages("dataset", "site-a")
+site_a = loader.load_pages(dataset_folder, "site-a")
 last_page = loader.get_last_page_id()
 print("Number of pages: ", last_page)
-site_b = loader.load_pages("dataset", "site-b")
+site_b = loader.load_pages(dataset_folder, "site-b")
 
 true_relationship = [ (i,i+last_page) for i in range(last_page)  ]
 

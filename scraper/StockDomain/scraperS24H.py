@@ -21,7 +21,7 @@ class S24HSpider(scrapy.Spider):
             'url': player.xpath("./@href").extract_first()
                }
            file.write(player.xpath("./@href").extract_first())
-           file.write("\n")
+           file.write(",")
        file.close() 
 
        

@@ -41,7 +41,7 @@ class S24HSpider(scrapy.Spider):
                }
            file.write('https://teleborsa.it')
            file.write(player.xpath("./@href").extract_first())
-           file.write("\n")
+           file.write(",")
        file.close() 
 
     

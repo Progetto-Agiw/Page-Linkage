@@ -19,5 +19,5 @@ class RealmSpider(scrapy.Spider):
                }
            file.write("https://basketball.realgm.com/")
            file.write(player.xpath("./@href").extract_first())
-           file.write("\n")
+           file.write(",")
        file.close() 

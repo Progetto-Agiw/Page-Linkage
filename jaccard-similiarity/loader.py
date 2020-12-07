@@ -13,3 +13,6 @@ class Loader:
 			pages.append( (self.__id_counter, filename) )
 			self.__id_counter += 1	
 		return pages
+
+	def get_last_page_id(self):
+		return self.__id_counter

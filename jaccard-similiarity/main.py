@@ -14,19 +14,23 @@ if len(sys.argv) < 2:
 	exit()
 
 dataset_folder = sys.argv[1]
-max_page = int(sys.argv[2])
+
+if len(sys.argv) >= 3:
+	max_page = int(sys.argv[2])
+else:
+	max_page = 200
 
 
 loader = Loader()
-site_a = loader.load_pages_from_links(dataset_folder, "nba.txt", max_page)
+site_a = loader.load_pages(dataset_folder, "site-a", max_page)
 last_page = loader.get_last_page_id()
 print("Number of pages: ", last_page)
-site_b = loader.load_pages_from_links(dataset_folder, "url_realm.txt", max_page)
+site_b = loader.load_pages(dataset_folder, "site-b", max_page)
 true_relationship = [ (i,i+last_page) for i in range(last_page)  ]
 
 sites = [site_a, site_b]
 
-reader = WebReader()
+reader = FileReader()
 wrapper = LeavesWrapper(reader)
 ranker = Ranker()
 relationship_wrapper = RelationshipWrapper(sites, wrapper, ranker)

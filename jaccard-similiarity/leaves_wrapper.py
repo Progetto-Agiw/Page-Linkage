@@ -3,11 +3,12 @@ from lxml import html
 
 class LeavesWrapper:
 
+	def __init__(self, data_reader):
+		self.__data_reader = data_reader
+
 	#add label to parameters
-	def get_all_leaves(self, path):
-		file = open(path, "r")
-		page = file.read()
-		file.close()
+	def get_all_leaves(self, uri):
+		page = self.__data_reader.get_page(uri)
 		dom_tree = html.fromstring(page)
 		all_leaves = dom_tree.xpath("//body//*[text()[not(normalize-space()='')]][not(self::script or self::style or self::meta or self::noscript)]/text()")
 		return all_leaves

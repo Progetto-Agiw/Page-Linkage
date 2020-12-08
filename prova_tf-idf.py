@@ -124,7 +124,7 @@ for i in range(0,len(dict_first_source)):
     temp = []
     
     for k,v in d1.items():
-        if(d1[k]>0.093):
+        if(d1[k]>0.13):
             l1.append(k)
     #print("Termini sorgente " + str(i) + " "  + str(l1) + "\n")
     
@@ -133,7 +133,7 @@ for i in range(0,len(dict_first_source)):
         l2=[]
         cont = 0
         for k,v in d2.items():
-            if(d2[k]>0.093):
+            if(d2[k]>0.13):
                 l2.append(k)
         #print("Termini sorgente " + str(j) + " "  + str(l2) + "\n")
         for elem1 in l1:
@@ -141,16 +141,20 @@ for i in range(0,len(dict_first_source)):
                 if(elem1 == elem2):
                     cont += 1
         #print("Pagina " + str(i) + "con pagina " + str(j) + "contatore = " + str(cont) + "\n")
-        if(cont >= maxx):
+        
+        if(cont > maxx):
             #print("il contatore era: " + str(cont))
             temp.insert(0,i)
             temp.insert(1,j)
             maxx = cont
             #print("il max è diventato: "+ str(maxx))
-    
-    coppie.append((temp[0],temp[1]))
+    if (not temp):
+        ##non aggiungere nessuna coppia visto che non hai trovato nemmeno un termine in comune
+        print("Pagina " + str(i) + " non accoppiata" + "\n")
+    else:
+        coppie.append((temp[0],temp[1]))
 
-#### Stampa risultati
+############# Stampa risultati accoppiamenti #############
 num = 0
 den = len(coppie)
 for coppia in coppie:
@@ -158,8 +162,13 @@ for coppia in coppie:
     if(coppia[0] == coppia[1]):
         num += 1
 
+############# Calcolo precision e recall #################
+
 precision = num/den
 print("\n\n La precision del sistema è " + str(precision) + "\n\n")
+
+recall = num/len(dict_first_source)
+print("La recall del sistema è " + str(recall) + "\n\n")
 
 ######## Stampa per la seconda sorgente #########
 #print("Inizio stampa dei dizionari relativi a tutte le pagine\n\n")

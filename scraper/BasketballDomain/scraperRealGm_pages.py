@@ -17,7 +17,8 @@ class RealmSpider(scrapy.Spider):
     
 
     def parse(self, response):
-       filename = response.url.split("/")[-1] + '.html'
+       #filename = response.url.split("/")[-1] + '.html'
+       filename = response.url[38:(response.url.rfind('S')-1)] + '.html'
        with open(filename, 'wb') as f:
            f.write(response.body)
        

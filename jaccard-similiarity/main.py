@@ -18,7 +18,7 @@ dataset_folder = sys.argv[1]
 if len(sys.argv) >= 3:
 	max_page = int(sys.argv[2])
 else:
-	max_page = 200
+	max_page = None
 
 
 loader = Loader()

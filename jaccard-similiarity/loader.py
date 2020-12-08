@@ -8,14 +8,11 @@ class Loader:
 	def load_pages(self, path, site, limit):
 		pages = []
 		path = os.path.join(path, site)
-		extracted_pages = 0
-		for filename in sorted(os.listdir(path)):
+		files = sorted(os.listdir(path))[:limit]
+		for filename in files:
 			filename = os.path.join(path, filename)
 			pages.append( (self.__id_counter, filename) )
 			self.__id_counter += 1	
-			extracted_pages+=1
-			if extracted_pages >= limit:
-				return pages
 		return pages
 
 	def load_pages_from_links(self, path, site, limit):
@@ -26,13 +23,11 @@ class Loader:
 		lines = content.split(",")
 
 		pages = []
-		extracted_pages = 0
+		lines = lines[:limit]
+
 		for url in lines:
 			pages.append( (self.__id_counter, url ) )
 			self.__id_counter += 1
-			extracted_pages += 1
-			if extracted_pages >= limit:
-				return pages
 
 		return pages
 

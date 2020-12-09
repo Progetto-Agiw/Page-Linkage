@@ -31,7 +31,7 @@ for page in s:
     firefox.get(page)
     html = firefox.page_source
     filename = page[page.rfind('/')+1: ] + ".html"
-    my_file = open(filename, "w")
+    my_file = open('./ROTOWORLD_pages/' + filename, "w")
     print('Scrivendo pagina' + page + '\n')
     my_file.write(str(html))
     my_file.close

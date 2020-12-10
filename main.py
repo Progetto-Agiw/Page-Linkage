@@ -36,18 +36,18 @@ algoritmo2 = Algoritmo2()
 coppie2 = algoritmo2.faiLaMagia(html_first_source2,dict_second_source)
 
 ###### Stampa risultati 1##################
-num = 0
-den = len(coppie1)
-for coppia in coppie1:
+#num = 0
+#den = len(coppie1)
+#for coppia in coppie1:
     #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
-    if(coppia[0] == coppia[1]):
-        num += 1
+#    if(coppia[0] == coppia[1]):
+#        num += 1
 
-precision = num/den
-print("\n\n La precision del sistema perfettamente allineato è " + str(precision) + "\n\n")
+#precision = num/den
+#print("\n\n La precision del sistema perfettamente allineato è " + str(precision) + "\n\n")
 
-recall = num/len(dict_second_source)
-print("La recall del sistema perfettamente allineato è " + str(recall) + "\n\n")
+#recall = num/len(dict_second_source)
+#print("La recall del sistema perfettamente allineato è " + str(recall) + "\n\n")
 
 num = 0
 den = len(coppie1)

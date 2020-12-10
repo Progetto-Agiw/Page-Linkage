@@ -30,7 +30,7 @@ class Algoritmo1:
                         if(elem1 == elem2):
                             cont += 1
               
-                if(cont > maxx):
+                if(cont > maxx and cont > 1):
                     temp.insert(0,i)
                     temp.insert(1,j)
                     maxx = cont

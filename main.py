@@ -17,7 +17,6 @@ else:
 ### Caricamento file html e pulizia da tutti i tag #####
 loader = Loader()
 html_first_source = loader.load_pages_leaves(dataset_folder, "NBA_pages", max_page)
-html_first_source2 = loader.load_pages(dataset_folder, "REALGM_pages", max_page)
 html_second_source = loader.load_pages_leaves(dataset_folder, "ROTOWORLD_pages", max_page)
 ### Calcolo tf-idf e creazione dizionario {Termine : Tf_idf_associato} #####
 vectorizer = Vectorizer()

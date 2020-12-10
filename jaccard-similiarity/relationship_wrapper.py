@@ -41,7 +41,9 @@ class RelationshipWrapper:
 				sim = self.__similiarity(page1, page2)
 				associations.append((label1, label2, sim))
 
+		associations.sort(key=lambda x: x[2], reverse=True)
 		self.__ranker.generate(associations)
+		return associations
 
 	def predict(self):
 		ranking = self.__ranker.get_ranking()
@@ -57,6 +59,10 @@ class RelationshipWrapper:
 		return self.__ranker.get_ranking()
 
 
+	def get_top(self, k):
+		pass
+
+	# Da spostare in Metric (o qualcosa del genere)
 	def accuracy(self, predicted_relationships, true_relationships):
 		assert (len(predicted_relationships) == len(true_relationships)), "relationships should have the same length"
 		sort_by_first_site = lambda predction: predction[0]
@@ -70,3 +76,11 @@ class RelationshipWrapper:
 				good_predictions += 1
 
 		return good_predictions / len(true_relationships)
+
+	'''
+	ranking dovrebbe essere solo una lista di coppie ordinate per sim
+
+	def precision(true_rel, prediction, top_k)
+
+	def recall()
+	'''

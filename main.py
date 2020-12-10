@@ -62,6 +62,9 @@ print("\n\n La precision del sistema rumoroso è " + str(precision) + "\n\n")
 recall = num/75
 print("La recall del sistema rumoroso è " + str(recall) + "\n\n")
 
+f_measure = 2*(recall*precision)/(recall+precision)
+print("La f1 measure del sistema rumoroso è " + str(f_measure) + "\n\n")
+
 ###### Stampa risultati 2##################
 #num = 0
 #den = len(coppie2)

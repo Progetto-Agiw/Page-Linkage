@@ -2,7 +2,6 @@ from loader import Loader
 import sys
 from vectorizer import Vectorizer
 from algoritmo1 import Algoritmo1
-from algoritmo2 import Algoritmo2
 
 if len(sys.argv) < 2:
 	print("usage: entity-linkage <dataset-folder> <page-limit>")
@@ -30,29 +29,9 @@ algoritmo1 = Algoritmo1()
 
 coppie1 = algoritmo1.faiLaMagia(dict_first_source,dict_second_source)
 
-############## Algoritmo 2########################
-algoritmo2 = Algoritmo2()
-
-coppie2 = algoritmo2.faiLaMagia(html_first_source2,dict_second_source)
-
-###### Stampa risultati 1##################
-#num = 0
-#den = len(coppie1)
-#for coppia in coppie1:
-    #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
-#    if(coppia[0] == coppia[1]):
-#        num += 1
-
-#precision = num/den
-#print("\n\n La precision del sistema perfettamente allineato è " + str(precision) + "\n\n")
-
-#recall = num/len(dict_second_source)
-#print("La recall del sistema perfettamente allineato è " + str(recall) + "\n\n")
-
 num = 0
 den = len(coppie1)
 for coppia in coppie1[:75]:
-    #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
     if(coppia[0] == coppia[1]):
         num += 1
 
@@ -64,20 +43,6 @@ print("La recall del sistema rumoroso è " + str(recall) + "\n\n")
 
 f_measure = 2*(recall*precision)/(recall+precision)
 print("La f1 measure del sistema rumoroso è " + str(f_measure) + "\n\n")
-
-###### Stampa risultati 2##################
-#num = 0
-#den = len(coppie2)
-#for coppia in coppie2:
-    #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
-#    if(coppia[0] == coppia[1]):
-#        num += 1
-
-#precision = num/den
-#print("\n\n La precision del sistema numero 2 è " + str(precision) + "\n\n")
-
-#recall = num/len(dict_second_source)
-#print("La recall del sistema numero 2 è " + str(recall) + "\n\n")
 
 
 ######## Stampa per la seconda sorgente #########

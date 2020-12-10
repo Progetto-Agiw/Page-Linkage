@@ -1,4 +1,4 @@
-
+from intersect import Intersect
 
 class Algoritmo1:
     
@@ -7,6 +7,8 @@ class Algoritmo1:
     def faiLaMagia(self,dict_first_source,dict_second_source):
         
         coppie = []
+        
+        intersect = Intersect()
 
         for i in range(0,len(dict_first_source)):
     
@@ -19,27 +21,14 @@ class Algoritmo1:
                 
                 d2 = dict_second_source[j]
                 high_values_list_2 = self.get_high_values(d2, 0.11)
-                cardinality_list.append(self.intersect_cardinality(high_values_list_1, high_values_list_2))
+                cardinality_list.append(intersect.intersect_cardinality(high_values_list_1, high_values_list_2))
              
             maxx = max(cardinality_list)
             if (maxx > self.SOGLIA_MINIMA_INTERSEZIONE):
                 coppie.append((i, cardinality_list.index(maxx)))
             
         return coppie
-    
-    
-    
-    def intersect_cardinality(self,lista_termini_1,lista_termini_2):
-            
-        cardinality = 0
-        for elem1 in lista_termini_1:
-            for elem2 in lista_termini_2:
-                if(elem1 == elem2):
-                    cardinality += 1            
         
-        return cardinality
-    
-    
     
     def get_high_values(self,dictionary,soglia):
         
@@ -50,14 +39,6 @@ class Algoritmo1:
                 
         return high_values_list
     
-    
-    def index_max_cardinality(self,cardinality_list, soglia_minima):
-        
-        maxx = max(cardinality_list)
-        if (maxx >= soglia_minima):
-            return cardinality_list.index(maxx)
-        else:
-            return -1
            
     
     

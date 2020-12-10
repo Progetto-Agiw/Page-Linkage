@@ -50,17 +50,25 @@ recall = num/len(dict_second_source)
 print("La recall del sistema numero 1 è " + str(recall) + "\n\n")
 
 ###### Stampa risultati 2##################
-num = 0
-den = len(coppie2)
-for coppia in coppie2:
+#num = 0
+#den = len(coppie2)
+#for coppia in coppie2:
     #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
-    if(coppia[0] == coppia[1]):
-        num += 1
+#    if(coppia[0] == coppia[1]):
+#        num += 1
 
-precision = num/den
-print("\n\n La precision del sistema numero 2 è " + str(precision) + "\n\n")
+#precision = num/den
+#print("\n\n La precision del sistema numero 2 è " + str(precision) + "\n\n")
 
-recall = num/len(dict_second_source)
-print("La recall del sistema numero 2 è " + str(recall) + "\n\n")
+#recall = num/len(dict_second_source)
+#print("La recall del sistema numero 2 è " + str(recall) + "\n\n")
+
+
+######## Stampa per la seconda sorgente #########
+#print("Inizio stampa dei dizionari relativi a tutte le pagine\n\n")
+#for i in range(0,len(dict_first_source)):
+#    print("Dizionario n°"+ str(i) +" della seconda sorgente\n")
+#    print(dict_first_source[i])
+#    print("\n\n")
 
 

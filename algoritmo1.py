@@ -13,16 +13,16 @@ class Algoritmo1:
             maxx = 0
             temp = []
     
-            for k,v in d1.items():
-                if(d1[k]>0.13):
+            for k,_ in d1.items():
+                if(d1[k]>0.11):
                     l1.append(k)
     
             for j in range(0,len(dict_second_source)):
                 d2 = dict_second_source[j]
                 l2=[]
                 cont = 0
-                for k,v in d2.items():
-                    if(d2[k]>0.13):
+                for k,_ in d2.items():
+                    if(d2[k]>0.11):
                         l2.append(k)
       
                 for elem1 in l1:

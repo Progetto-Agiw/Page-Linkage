@@ -4,7 +4,7 @@ class Vectorizer:
     
     def fit_transform(self, html_source):
         
-        vectorizer = TfidfVectorizer(stop_words = "english")
+        vectorizer = TfidfVectorizer(stop_words = "english", max_df = 0.33)
         vectors = vectorizer.fit_transform(html_source)
         dict_source = []
 

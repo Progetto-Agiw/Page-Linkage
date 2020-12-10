@@ -2,6 +2,8 @@
 
 class Algoritmo1:
     
+    SOGLIA_MINIMA_INTERSEZIONE = 1
+    
     def faiLaMagia(self,dict_first_source,dict_second_source):
         
         coppie = []
@@ -9,8 +11,7 @@ class Algoritmo1:
         for i in range(0,len(dict_first_source)):
     
             d1 = dict_first_source[i]
-            maxx = 0
-            couple_temp = []
+            cardinality_list = []
     
             high_values_list_1 = self.get_high_values(d1, 0.11)
     
@@ -18,18 +19,11 @@ class Algoritmo1:
                 
                 d2 = dict_second_source[j]
                 high_values_list_2 = self.get_high_values(d2, 0.11)
-                cardinality = self.intersect_cardinality(high_values_list_1, high_values_list_2)
-    
-                if(cardinality > maxx and cardinality > 1):
-                    couple_temp.insert(0,i)
-                    couple_temp.insert(1,j)
-                    maxx = cardinality
-                    
-            if (not couple_temp):
-                ##non aggiungere nessuna coppia visto che non hai trovato almeno due termini in comune
-                pass
-            else:
-                coppie.append((couple_temp[0],couple_temp[1]))
+                cardinality_list.append(self.intersect_cardinality(high_values_list_1, high_values_list_2))
+             
+            maxx = max(cardinality_list)
+            if (maxx > self.SOGLIA_MINIMA_INTERSEZIONE):
+                coppie.append((i, cardinality_list.index(maxx)))
             
         return coppie
     
@@ -55,6 +49,20 @@ class Algoritmo1:
                 high_values_list.append(k)
                 
         return high_values_list
+    
+    
+    def index_max_cardinality(self,cardinality_list, soglia_minima):
+        
+        maxx = max(cardinality_list)
+        if (maxx >= soglia_minima):
+            return cardinality_list.index(maxx)
+        else:
+            return -1
+           
+    
+    
+    
+    
                     
                     
                     

@@ -17,9 +17,9 @@ else:
 
 ### Caricamento file html e pulizia da tutti i tag #####
 loader = Loader()
-html_first_source = loader.load_pages_leaves(dataset_folder, "site-a", max_page)
-html_first_source2 = loader.load_pages(dataset_folder, "site-a", max_page)
-html_second_source = loader.load_pages_leaves(dataset_folder, "site-b", max_page)
+html_first_source = loader.load_pages_leaves(dataset_folder, "REALGM_pages", max_page)
+html_first_source2 = loader.load_pages(dataset_folder, "ROTOWORLD_pages", max_page)
+html_second_source = loader.load_pages_leaves(dataset_folder, "ROTOWORLD_pages", max_page)
 ### Calcolo tf-idf e creazione dizionario {Termine : Tf_idf_associato} #####
 vectorizer = Vectorizer()
 dict_first_source = vectorizer.fit_transform(html_first_source)
@@ -44,10 +44,23 @@ for coppia in coppie1:
         num += 1
 
 precision = num/den
-print("\n\n La precision del sistema numero 1 è " + str(precision) + "\n\n")
+print("\n\n La precision del sistema perfettamente allineato è " + str(precision) + "\n\n")
 
 recall = num/len(dict_second_source)
-print("La recall del sistema numero 1 è " + str(recall) + "\n\n")
+print("La recall del sistema perfettamente allineato è " + str(recall) + "\n\n")
+
+num = 0
+den = len(coppie1)
+for coppia in coppie1[:75]:
+    #print("Pagina " + str(coppia[0]) + " accoppiata con pagina " + str(coppia[1]) + " \n")
+    if(coppia[0] == coppia[1]):
+        num += 1
+
+precision = num/den
+print("\n\n La precision del sistema rumoroso è " + str(precision) + "\n\n")
+
+recall = num/75
+print("La recall del sistema rumoroso è " + str(recall) + "\n\n")
 
 ###### Stampa risultati 2##################
 #num = 0

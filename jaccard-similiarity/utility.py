@@ -14,5 +14,5 @@ def read_cli_input(cli_input):
 		max_page = int(cli_input[4])
 	else:
 		max_page = None
-
+	
 	return dataset_folder, source_a, source_b, max_page

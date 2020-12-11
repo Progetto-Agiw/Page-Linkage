@@ -5,29 +5,15 @@ from loader import Loader
 from file_reader import FileReader
 from web_reader import WebReader
 import metrics
-
+import utility
 import sys
 
 print("ENTITY LINKAGE 3000 \n")
-
-if len(sys.argv) < 4:
+try:
+	dataset_folder, source_a, source_b, max_page = utility.read_cli_input(sys.argv)
+except:
 	print("usage: entity-linkage <dataset-folder> <web-site-a> <web-site-b> <page-limit>")
 	exit()
-
-dataset_folder = sys.argv[1]
-
-
-if len(sys.argv) >= 4:
-	source_a = sys.argv[2]
-	source_b = sys.argv[3]
-
-if len(sys.argv) >= 5:
-	max_page = int(sys.argv[4])
-else:
-	max_page = None
-
-
-
 
 loader = Loader()
 site_a = loader.load_pages(dataset_folder, source_a, max_page)

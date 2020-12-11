@@ -32,13 +32,13 @@ def entity_linkage(dataset_folder, noise_folder, source_a, source_b, max_pages):
 	prediction = relationship_wrapper.predict()
 	prediction.sort(key=lambda x: x[0])
 	prediction = prediction[:max_pages]
-	print("Prediction: ", prediction)
-	print("Prediction accuracy: ", metrics.accuracy(prediction, true_relationship))
-	print("Wrong matches: ", set(prediction) - set(true_relationship))
+	#print("Prediction: ", prediction)
+	#print("Prediction accuracy: ", metrics.accuracy(prediction, true_relationship))
+	#print("Wrong matches: ", set(prediction) - set(true_relationship))
 
 	associations = relationship_wrapper.predict_scores()
 	associations = associations[:max_pages]
 	precision, recall = metrics.precision_recall(associations, true_relationship)
-	print(precision)
-	print(recall)
+	#print(precision)
+	#print(recall)
 	return precision, recall

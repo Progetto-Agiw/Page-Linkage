@@ -4,6 +4,7 @@ from ranker import Ranker
 from loader import Loader
 from file_reader import FileReader
 from web_reader import WebReader
+import metrics
 
 import sys
 
@@ -42,25 +43,17 @@ wrapper = LeavesWrapper(reader)
 ranker = Ranker()
 relationship_wrapper = RelationshipWrapper(sites, wrapper, ranker)
 
-associations = relationship_wrapper.fit()
+relationship_wrapper.fit()
 
 prediction = relationship_wrapper.predict()
 print("Prediction: ", prediction)
-print("Prediction accuracy: ", relationship_wrapper.accuracy(prediction, true_relationship))
+print("Prediction accuracy: ", metrics.accuracy(prediction, true_relationship))
 print("Wrong matches: ", set(prediction) - set(true_relationship))
 
 print("\n\n")
-precision = 0
-recall = 0
-for i in range(len(associations)):
-	p1, p2, _ = associations[i]
-	if (p1, p2) in true_relationship:
-		precision += 1
-		recall += 1
 
-	print("Precision:", precision/(i+1))
-	print("Recall:", recall/last_page)	
+associations = relationship_wrapper.predict_scores()
+precision, recall = metrics.precision_recall(associations, true_relationship)
 
-	if recall == last_page:
-		break
-
+print(precision)
+print(recall)

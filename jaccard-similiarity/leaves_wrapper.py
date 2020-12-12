@@ -6,7 +6,6 @@ class LeavesWrapper:
 	def __init__(self, data_reader):
 		self.__data_reader = data_reader
 
-	#add label to parameters
 	def get_all_leaves(self, uri):
 		page = self.__data_reader.get_page(uri)
 		dom_tree = html.fromstring(page)

@@ -4,6 +4,7 @@ from loader import Loader
 
 def entity_linkage(dataset_folder, site_a, site_b, max_page = None):
 	### Caricamento file html e pulizia da tutti i tag #####
+	print("pages: " + str(max_page))
 	loader = Loader()
 	html_first_source = loader.load_pages_leaves(dataset_folder, site_a, max_page)
 	html_second_source = loader.load_pages_leaves(dataset_folder, site_b, max_page)
@@ -35,6 +36,7 @@ def entity_linkage(dataset_folder, site_a, site_b, max_page = None):
 	    recalls.append(current_recall)
 	    i += 1
 
+	'''
 	precision = num/den
 	print("\n\n La precision del sistema rumoroso è " + str(precision) + "\n\n")
 
@@ -43,9 +45,10 @@ def entity_linkage(dataset_folder, site_a, site_b, max_page = None):
 
 	f_measure = 2*(recall*precision)/(recall+precision)
 	print("La f1 measure del sistema rumoroso è " + str(f_measure) + "\n\n")
-
+	
 	print(precisions)
 	print(recalls)
+	'''
 	######## Stampa per la seconda sorgente #########
 	#print("Inizio stampa dei dizionari relativi a tutte le pagine\n\n")
 	#for i in range(0,len(dict_first_source)):

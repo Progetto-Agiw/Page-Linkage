@@ -26,6 +26,7 @@ def entity_linkage(dataset_folder, site_a, site_b, max_page = None):
 	den = len(coppie1)
 
 	ground_truth_size = max_page if max_page != None else 75
+	ground_truth_size = min(ground_truth_size, 75)
 
 	for coppia in coppie1[:75]:
 	    if(coppia[0] == coppia[1]):

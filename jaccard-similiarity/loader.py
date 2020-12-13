@@ -17,7 +17,7 @@ class Loader:
 
 	def load_pages_from_links(self, path, site, limit):
 		path = os.path.join(path, site)
-		file = open(path, "r")
+		file = open(path, "r", encoding="utf8")
 		content = file.read()
 		file.close()
 		lines = content.split(",")

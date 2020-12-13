@@ -66,7 +66,7 @@ recall = num/75
 print("La recall del sistema NBA VS ROTOWORLD è " + str(recall) + "\n\n")
 
 f_measure = 2*(recall*precision)/(recall+precision)
-print("La f1 measure del sistema REALGM VS ROTOWORLD è " + str(f_measure) + "\n\n")
+print("La f1 measure del sistema NBA VS ROTOWORLD è " + str(f_measure) + "\n\n")
 
 num = 0
 den = len(coppie3)

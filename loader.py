@@ -10,7 +10,7 @@ class Loader:
         files = sorted(os.listdir(path))[:limit]
         for filename in files:
             filename = os.path.join(path,filename)
-            file = open(filename, "r")
+            file = open(filename, "r", encoding="utf8")
             page = file.read()
             tree = html.fromstring(page)
             all_leaves = tree.xpath("//body//*[text()[not(normalize-space()='')]][not(self::script or self::style or self::meta or self::noscript)]/text()")

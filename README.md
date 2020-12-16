@@ -8,5 +8,5 @@ Preso un dominio di interesse:
  - sperimentare metodologie di allineamento automatico delle pagine estratte relative alle stesse entity-page
  - valutare le prestazioni del sistema 
 ## Soluzioni proposte
-- Algoritmo 1: uso di Jaccard Similarity
-- Algoritmo 2: uso di TF-IDF
+- Algoritmo 1: uso di Jaccard Similarity (branch feature precision/recall)
+- Algoritmo 2: uso di TF-IDF (branch tf-id)

@@ -1,7 +1,7 @@
 import scrapy
 from Filereader import Filereader
 
-
+#spider for RealGM
 class RealmSpider(scrapy.Spider):
     name = "bskRealm_players"
     

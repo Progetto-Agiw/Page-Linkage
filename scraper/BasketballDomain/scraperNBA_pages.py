@@ -3,7 +3,7 @@ import time
 from Filereader import Filereader
 from collections import deque
 
-
+#spider for NBA
 class NbaSpider(scrapy.Spider):
     name = "bskNBA_players"
     nomi = deque([])

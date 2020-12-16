@@ -14,14 +14,9 @@ if platform.system() == 'Windows':
 else:
     GECKO_PATH = "./geckodriver"
     binary = FirefoxBinary('/usr/bin/firefox')
-#Needs absolute path (maybe, didn't work on Windows)
-#ADBLOCK_PATH = "./adblock_plus-3.10-an fx.xpi"
-#IMAGEBLOCK_PATH = "./image_block-5.0-fx.xpi"
+
 
 ffprofile = webdriver.FirefoxProfile()
-#https://intoli.com/blog/firefox-extensions-with-selenium/
-#ffprofile.add_extension(extension=ADBLOCK_PATH)
-#ffprofile.add_extension(extension=IMAGEBLOCK_PATH)
 ffprofile.set_preference("extensions.adblockplus.currentVersion", "3.10")
 ffoptions = webdriver.FirefoxOptions()
 ffoptions.headless = True
@@ -32,6 +27,7 @@ urls = filereader.get_page("url_nba.txt")
 
 names = deque([])   
 
+#parsing uri
 new_urls = []
 for url in urls:
     temp = (url[url.rfind('https://www.nba.com/player/'):(url.rfind('/'))])
